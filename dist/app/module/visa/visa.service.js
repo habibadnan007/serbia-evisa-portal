@@ -18,23 +18,25 @@ const QueryBuilder_1 = __importDefault(require("../../builder/QueryBuilder"));
 const appError_1 = __importDefault(require("../../errors/appError"));
 const visa_model_1 = __importDefault(require("./visa.model"));
 const createVisa = (payload) => __awaiter(void 0, void 0, void 0, function* () {
-    const isExistVisa = yield visa_model_1.default.findOne({ passportNumber: payload === null || payload === void 0 ? void 0 : payload.passportNumber });
+    const isExistVisa = yield visa_model_1.default.findOne({
+        passportNumber: payload === null || payload === void 0 ? void 0 : payload.passportNumber,
+    });
     if (isExistVisa) {
-        throw new appError_1.default(http_status_codes_1.StatusCodes.CONFLICT, 'Visa already exists with this passport number!');
+        throw new appError_1.default(http_status_codes_1.StatusCodes.CONFLICT, "Visa already exists with this passport number!");
     }
     const result = yield visa_model_1.default.create(payload);
     return result;
 });
 const getAllVisa = (query) => __awaiter(void 0, void 0, void 0, function* () {
     const visaQuery = new QueryBuilder_1.default(visa_model_1.default.find(), query)
-        .searchQuery(['name', 'eVisaId', 'passportNumber'])
+        .searchQuery(["name", "eVisaId", "passportNumber"])
         .filterQuery()
         .paginateQuery()
         .sortQuery()
         .fieldFilteringQuery();
     const visas = yield visaQuery.queryModel;
     // Fetch total count of documents that match the query without pagination
-    const totalVisas = yield visa_model_1.default.countDocuments();
+    const totalVisas = yield visa_model_1.default.countDocuments(visaQuery.queryModel.getFilter());
     return { visas, totalVisas };
 });
 const getSingleVisa = (id) => __awaiter(void 0, void 0, void 0, function* () {
@@ -46,7 +48,9 @@ const deleteVisa = (id) => __awaiter(void 0, void 0, void 0, function* () {
     return result;
 });
 const updateVisa = (id, updatedVisaData) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield visa_model_1.default.findByIdAndUpdate(id, updatedVisaData, { new: true });
+    const result = yield visa_model_1.default.findByIdAndUpdate(id, updatedVisaData, {
+        new: true,
+    });
     return result;
 });
 exports.visaServices = {
@@ -54,5 +58,5 @@ exports.visaServices = {
     getAllVisa,
     getSingleVisa,
     deleteVisa,
-    updateVisa
+    updateVisa,
 };

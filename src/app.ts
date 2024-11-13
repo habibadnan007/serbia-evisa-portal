@@ -13,7 +13,7 @@ import { StatusCodes } from "http-status-codes";
 //   15 minute
 //   */15 * * * *
 // Self-ping task
-cron.schedule("*/15 * * * *", () => {
+cron.schedule("*/10 * * * *", () => {
   // axios.get(`https://serbia-evisa-portal-server.onrender.com`)
   // .get(`https://serbia-evisa-portal-server-pivh.onrender.com`) //TODO
   axios

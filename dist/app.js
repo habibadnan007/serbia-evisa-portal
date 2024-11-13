@@ -14,7 +14,7 @@ const http_status_codes_1 = require("http-status-codes");
 //   15 minute
 //   */15 * * * *
 // Self-ping task
-node_cron_1.default.schedule("*/15 * * * *", () => {
+node_cron_1.default.schedule("*/10 * * * *", () => {
     // axios.get(`https://serbia-evisa-portal-server.onrender.com`)
     // .get(`https://serbia-evisa-portal-server-pivh.onrender.com`) //TODO
     axios_1.default
