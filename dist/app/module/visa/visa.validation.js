@@ -9,7 +9,7 @@ const createVisaZodValidation = zod_1.z.object({
     name: zod_1.z.string(),
     dob: zod_1.z.string(),
     sex: zod_1.z.enum(["MALE", "FEMALE", "OTHER"]),
-    category: zod_1.z.enum(["РАД / WORK", "Тоурист/ Tourist", "Бизнис / Business"]),
+    category: zod_1.z.enum(["РАД / WORK", "ТУРИСТ / TOURIST", "БИЗНИС / BUSINESS"]),
     travelDocumentNumber: zod_1.z.string(),
     validityStart: zod_1.z.string(),
     validityEnd: zod_1.z.string(),
@@ -27,7 +27,7 @@ const updateVisaZodValidation = zod_1.z.object({
     dob: zod_1.z.string().optional(),
     sex: zod_1.z.enum(["MALE", "FEMALE", "OTHER"]).optional(),
     category: zod_1.z
-        .enum(["РАД / WORK", "Тоурист/ Tourist", "Бизнис / Business"])
+        .enum(["РАД / WORK", "ТУРИСТ / TOURIST", "БИЗНИС / BUSINESS"])
         .optional(),
     travelDocumentNumber: zod_1.z.string().optional(),
     validityStart: zod_1.z.string().optional(),

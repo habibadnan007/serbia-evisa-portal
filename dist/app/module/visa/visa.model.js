@@ -36,7 +36,7 @@ const visaSchema = new mongoose_1.default.Schema({
     sex: { type: String, enum: ["MALE", "FEMALE", "OTHER"], required: true },
     category: {
         type: String,
-        enum: ["РАД / WORK", "Тоурист/ Tourist", "Бизнис / Business"],
+        enum: ["РАД / WORK", "ТУРИСТ / TOURIST", "БИЗНИС / BUSINESS"],
         required: true,
     },
     travelDocumentNumber: { type: String, required: true },
