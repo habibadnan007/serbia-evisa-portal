@@ -14,6 +14,7 @@ const connectDB = async () => {
   }
 };
 
+
 const startServer = async () => {
   try {
     // Connect to the database
