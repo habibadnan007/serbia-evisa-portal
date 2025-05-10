@@ -8,20 +8,18 @@ const cors_1 = __importDefault(require("cors"));
 require("dotenv/config");
 const errHandler_1 = require("./app/middleware/errHandler");
 const visa_route_1 = require("./app/module/visa/visa.route");
-const node_cron_1 = __importDefault(require("node-cron"));
-const axios_1 = __importDefault(require("axios"));
 const http_status_codes_1 = require("http-status-codes");
 //   15 minute
 //   */15 * * * *
 // Self-ping task
-node_cron_1.default.schedule("*/10 * * * *", () => {
-    // axios.get(`https://serbia-evisa-portal-server.onrender.com`)
-    // .get(`https://serbia-evisa-portal-server-pivh.onrender.com`) //TODO
-    axios_1.default
-        .get(`https://serbia-evisa-portal.onrender.com`) //TODO
-        .then((response) => console.log("Self-ping successful:", response.status))
-        .catch((error) => console.error("Self-ping failed:", error.message));
-});
+// cron.schedule("*/10 * * * *", () => {
+//   // axios.get(`https://serbia-evisa-portal-server.onrender.com`)
+//   // .get(`https://serbia-evisa-portal-server-pivh.onrender.com`) //TODO
+//   axios
+//     .get(`https://serbia-evisa-portal.onrender.com`) //TODO
+//     .then((response) => console.log("Self-ping successful:", response.status))
+//     .catch((error) => console.error("Self-ping failed:", error.message));
+// });
 const app = (0, express_1.default)();
 // Parser
 app.get("/", (req, res) => res.send({

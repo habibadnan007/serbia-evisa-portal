@@ -13,14 +13,14 @@ import { StatusCodes } from "http-status-codes";
 //   15 minute
 //   */15 * * * *
 // Self-ping task
-cron.schedule("*/10 * * * *", () => {
-  // axios.get(`https://serbia-evisa-portal-server.onrender.com`)
-  // .get(`https://serbia-evisa-portal-server-pivh.onrender.com`) //TODO
-  axios
-    .get(`https://serbia-evisa-portal.onrender.com`) //TODO
-    .then((response) => console.log("Self-ping successful:", response.status))
-    .catch((error) => console.error("Self-ping failed:", error.message));
-});
+// cron.schedule("*/10 * * * *", () => {
+//   // axios.get(`https://serbia-evisa-portal-server.onrender.com`)
+//   // .get(`https://serbia-evisa-portal-server-pivh.onrender.com`) //TODO
+//   axios
+//     .get(`https://serbia-evisa-portal.onrender.com`) //TODO
+//     .then((response) => console.log("Self-ping successful:", response.status))
+//     .catch((error) => console.error("Self-ping failed:", error.message));
+// });
 
 const app = express();
 
