@@ -18,6 +18,7 @@ const createVisaZodValidation = z.object({
   passportNumber: z.string(),
 });
 
+
 const updateVisaZodValidation = z.object({
   userImg: z.string().optional(),
   dateOfApplication: z.string().optional(),
